@@ -1,0 +1,15 @@
+<%- include('header') -%>
+<form action="" method="POST">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
+  <label for="description">Description</label>
+  <textarea name="description" id="description" cols="30" rows="10"></textarea>
+  <label for="price">Price</label>
+  <input type="number" step=".01" id="price" name="price" required>
+  <label for="stock">Number in stock</label>
+  <input type="number" id="stock" name="stock" required>
+  <label for="image-url">Image URL</label>
+  <input type="url" id="image-url" name="image-url">
+  <button type="submit">Create</button>
+</form>
+<%- include('footer') -%>

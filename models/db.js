@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const ItemModel = require('./item');
 const CategoryModel = require('./category');
 
-const sequelize = new Sequelize(`mysql://root:@localhost:3306/inventory`);
+const sequelize = new Sequelize(process.env.MYSQL_URI);
 
 const Item = ItemModel(sequelize);
 const Category = CategoryModel(sequelize);
@@ -16,11 +16,18 @@ Category.belongsToMany(Item, {
   foreignKey: 'categoryId',
 });
 
+async function connectToDB() {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database', error);
+    process.exit(1);
+  }
+}
+
 module.exports = {
   Item,
   Category,
+  connectToDB,
 };
-
-(async () => {
-  await sequelize.sync({ force: true });
-})();

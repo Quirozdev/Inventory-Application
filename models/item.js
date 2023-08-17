@@ -15,9 +15,6 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.STRING,
     },
-    // category: {
-    //   allowNull: false,
-    // },
     price: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
@@ -25,6 +22,9 @@ module.exports = (sequelize) => {
     numberInStock: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    url: {
+      type: DataTypes.TEXT,
     },
   });
   return Item;
