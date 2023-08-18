@@ -20,6 +20,10 @@ async function main() {
     res.render('index', { title: 'xd', message: 'Hola como estasss' });
   });
 
+  app.use((error, req, res, next) => {
+    console.log(error);
+  });
+
   app.listen(8080, () => {
     console.log(`Server started!!`);
   });
