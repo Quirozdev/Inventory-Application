@@ -1,0 +1,22 @@
+extends base
+block content
+  form(action="" method="POST" class="container-sm mt-3")
+    div(class="form-floating mb-3")
+      input(type="text" id="name" name="name" class="form-control" placeholder="xd" required)
+      label(for="name") Name
+    div(class="form-floating mb-3")
+      textarea(name="description" id="description" class="form-control" placeholder="xd")
+      label(for="description") Description
+    div(class="input-group mb-3")
+      span(class="input-group-text") $
+      div(class="form-floating")
+        input(type="number" step=".01" id="price" name="price" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="19.50" required)
+        label(for="price") Price
+    div(class="form-floating mb-3")
+      input(type="number" id="stock" name="stock" class="form-control" placeholder="5" required)
+      label(for="stock") Number in stock
+    //- !-- div class="mb-3"
+    //-   label for="image-file" class="form-label"Image/label
+    //-   input class="form-control" type="file" accept="image/*" id="image-file" name="image-file"
+    //- /div --
+    button(type="submit" class="btn btn-success") Create
