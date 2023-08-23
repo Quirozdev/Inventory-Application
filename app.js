@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.use((error, req, res, next) => {
-  console.log(error);
+  res.send(error.message);
 });
 
 app.listen(8080, () => {

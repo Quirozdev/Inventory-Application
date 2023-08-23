@@ -1,0 +1,9 @@
+.card-img-top {
+  height: 50vh;
+  object-fit: cover;
+}
+
+.main-menu-link {
+  text-align: center;
+  text-decoration: none;
+}

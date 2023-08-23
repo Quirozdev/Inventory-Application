@@ -4,6 +4,7 @@ const { validationResult } = require('express-validator');
 
 exports.itemsList = async (req, res) => {
   const items = await Item.findAll();
+  console.log(items);
   res.render('items', {
     title: 'Items',
     items,
@@ -13,21 +14,30 @@ exports.itemsList = async (req, res) => {
 exports.createItemGet = async (req, res) => {
   res.render('create_item', {
     title: 'Create item',
-    errors: [],
   });
 };
 
 exports.createItemPost = [
   validateItem,
-  async (req, res) => {
+  async (req, res, next) => {
     const result = validationResult(req);
+    console.log(result.array());
     if (!result.isEmpty()) {
       return res.render('create_item', {
         title: 'Create item',
         errors: result.array(),
       });
     }
-    console.log(req.file, req.body);
-    res.send(req.body);
+    try {
+      await Item.create({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        numberInStock: req.body.stock,
+      });
+      res.redirect('/items');
+    } catch (err) {
+      next(err);
+    }
   },
 ];

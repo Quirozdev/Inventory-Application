@@ -8,4 +8,18 @@ exports.validateItem = [
     .isLength({ max: 255 })
     .withMessage('Name must be less than 255 characters')
     .escape(),
+  body('description', 'Invalid description')
+    .optional()
+    .trim()
+    .isLength({ max: 255 })
+    .withMessage('Description must be less than 255 characters')
+    .escape(),
+  body('price', 'Invalid price')
+    .trim()
+    .isDecimal({ decimal_digits: 2, force_decimal: false })
+    .withMessage('Price must be a number with only 2 decimals'),
+  body('stock', 'Invalid stock')
+    .trim()
+    .isInt({ min: 0 })
+    .withMessage('Stock must be an integer and 0 or greater'),
 ];

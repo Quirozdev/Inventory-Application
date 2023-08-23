@@ -1,4 +1,15 @@
 extends base
 
 block content
-  h1 xdddd
+  div(class='card-group')
+    div(class='card')
+      a(href='/items' class='main-menu-link')
+        img(src='../images/items.jpg' class='card-img-top img-fluid' alt='Items')
+        div(class='card-body')
+          h2(class='card-title') Items
+    div(class='card')
+      a(href='/categories' class='main-menu-link')
+        img(src='../images/categories.jpg' class='card-img-top img-fluid' alt='Categories')
+        div(class='card-body')
+          h2(class='card-title') Categories
+    

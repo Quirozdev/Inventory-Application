@@ -23,9 +23,6 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    url: {
-      type: DataTypes.TEXT,
-    },
   });
   return Item;
 };
