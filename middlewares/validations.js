@@ -22,4 +22,17 @@ exports.validateItem = [
     .trim()
     .isInt({ min: 0 })
     .withMessage('Stock must be an integer and 0 or greater'),
+  body('image-url')
+    .optional({
+      values: 'falsy',
+    })
+    .trim()
+    .isURL()
+    .withMessage('Invalid URL')
+    .matches(/\.(jpe?g|png|gif|bmp|webp)$/i)
+    .withMessage(
+      'The URL needs to be for an image, endindg with .jpg, .png, ...'
+    ),
 ];
+
+exports.validateCategory = [];

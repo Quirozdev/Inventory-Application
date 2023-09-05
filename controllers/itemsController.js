@@ -34,6 +34,7 @@ exports.createItemPost = [
         description: req.body.description,
         price: req.body.price,
         numberInStock: req.body.stock,
+        imageUrl: req.body['image-url'],
       });
       res.redirect('/items');
     } catch (err) {

@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    imageUrl: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
   });
   return Item;
 };

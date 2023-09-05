@@ -6,8 +6,8 @@ block content
   each item in items
     div(class='col')
       div(class='card h-100')
-        if item.url
-          img(src=item.url, alt=item.name class='card-img-top')
+        if item.imageUrl
+          img(src=item.imageUrl, alt=item.name class='card-img-top')
         else
           img(src='../images/no-image.png', alt='No image' class='card-img-top')
         div(class='card-body')
