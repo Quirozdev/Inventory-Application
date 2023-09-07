@@ -28,11 +28,28 @@ exports.validateItem = [
     })
     .trim()
     .isURL()
-    .withMessage('Invalid URL')
-    .matches(/\.(jpe?g|png|gif|bmp|webp)$/i)
-    .withMessage(
-      'The URL needs to be for an image, endindg with .jpg, .png, ...'
-    ),
+    .withMessage('Invalid URL'),
 ];
 
-exports.validateCategory = [];
+exports.validateCategory = [
+  body('name', 'Invalid name')
+    .trim()
+    .notEmpty()
+    .withMessage("Name can't be empty")
+    .isLength({ max: 255 })
+    .withMessage('Name must be less than 255 characters')
+    .escape(),
+  body('description', 'Invalid description')
+    .optional()
+    .trim()
+    .isLength({ max: 255 })
+    .withMessage('Description must be less than 255 characters')
+    .escape(),
+  body('image-url')
+    .optional({
+      values: 'falsy',
+    })
+    .trim()
+    .isURL()
+    .withMessage('Invalid URL'),
+];

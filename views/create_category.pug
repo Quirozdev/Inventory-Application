@@ -1,0 +1,13 @@
+extends base
+block content
+  form(action="" method="POST" class="container-sm mt-3")
+    div(class="form-floating mb-3")
+      input(type="text" id="name" name="name" class="form-control" placeholder="Food" required)
+      label(for="name") Name
+    div(class="form-floating mb-3")
+      textarea(name="description" id="description" class="form-control" placeholder="Is...")
+      label(for="description") Description
+    div(class="form-floating mb-3")
+      input(type="url" id="image-url" name="image-url" class="form-control" placeholder="https://images.com/image/1")
+      label(for="image-url") Image URL
+    button(type="submit" class="btn btn-success") Create

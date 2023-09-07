@@ -15,6 +15,16 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.STRING,
     },
+    imageUrl: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    url: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return `/categories/${this.id}`;
+      },
+    },
   });
   return Category;
 };

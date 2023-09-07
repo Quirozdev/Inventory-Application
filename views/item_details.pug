@@ -1,0 +1,10 @@
+extends base
+
+block content
+  div(class="card mb-3")
+    img(src=item.imageUrl class="card-img-top" alt=item.name)
+    div(class="card-body")
+      h3(class="card-title") #{item.name}
+      p(class="card-text") #{item.description}
+      each category in item.Categories
+        a(href=`/categories/${category.id}` style='display: block') #{category.name}

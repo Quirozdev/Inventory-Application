@@ -27,6 +27,12 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    url: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return `/items/${this.id}`;
+      },
+    },
   });
   return Item;
 };

@@ -8,19 +8,15 @@ const sequelize = new Sequelize(process.env.MYSQL_URI, {
     min: 0,
     idle: 10000,
   },
+  logging: false,
 });
 
 const Item = ItemModel(sequelize);
 const Category = CategoryModel(sequelize);
 
-Item.belongsToMany(Category, {
-  through: 'ItemCategories',
-  foreignKey: 'itemId',
-});
-Category.belongsToMany(Item, {
-  through: 'ItemCategories',
-  foreignKey: 'categoryId',
-});
+Item.belongsToMany(Category, { through: 'ItemCategories' });
+
+Category.belongsToMany(Item, { through: 'ItemCategories' });
 
 (async function connectToDB() {
   try {

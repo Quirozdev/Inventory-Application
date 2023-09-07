@@ -8,4 +8,6 @@ router.get('/create', itemsController.createItemGet);
 
 router.post('/create', itemsController.createItemPost);
 
+router.get('/:id', itemsController.getItemDetails);
+
 module.exports = router;
